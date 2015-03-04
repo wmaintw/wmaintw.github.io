@@ -1,6 +1,6 @@
 # Site settings
 title: 独自旅行的博客
-email: doomvan#163.com
+email: doomvan@163.com
 description:
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://wmaintw.github.io" # the base hostname & protocol for your site
