@@ -58,9 +58,9 @@ $ gradle uploadArchives
 
 **greeting.properties**
 
-在项目的`src/main/META-INF/gradle-plugins`目录下，有一个`greeting.properties`文件，这个文件的文件名是插件的名字，文件内容只有一行代码，用来指定当前插件的实现类，在运行这个插件的时候，gradle就可以从这里读取到这些信息。
+在项目的`src/main/META-INF/gradle-plugins`目录下，有一个`greeting.properties`文件，这个文件的文件名是插件的id，文件内容只有一行代码，用来指定当前插件的实现类，在运行这个插件的时候，gradle就可以从这里读取到这些信息。
 
-{% highlight text linenos %}
+{% highlight text %}
 implementation-class=com.hello.GreetingPlugin
 {% endhighlight %}
 
@@ -86,13 +86,13 @@ class GreetingPlugin implements Plugin<Project> {
 }
 {% endhighlight %}
 
-在`apply`方法中，我们调用gradle的`project`对象，定义了一个名为`greeting`的task，这个task的功能就是输出一句"Hello World"
+在`apply`方法中，我们调用gradle的`project`对象，定义了一个名为`greeting`的task，这个task的功能就是输出一句`Hello World`
 
-## 如何本地发布，使用插件
+## 如何本地发布 & 使用插件
 
 有了上面的这些文件和配置之后，我们的插件就制作得差不多了，接下来让我们运行`gradle uploadArchives`，把插件发布到本地目录，之后在客户端项目中应用这个插件：
 
-** 客户端项目的build.gradle文件 **
+**客户端项目的build.gradle文件**
 
 {% highlight groovy linenos %}
 apply plugin: 'greeting'
@@ -123,7 +123,7 @@ $ gradle greeting
 
 要把插件发布到Bintray，可以借助另一个gradle插件`plugindev`，于是我们只需在`build.gradle`文件里进行配置，然后在Bintray网站上申请一个账号就可以了。具体步骤如下：
 
-**step 1. 应用`plugindev`插件**
+### Step 1. 应用`plugindev`插件
 
 修改`build.gradle`文件，引入`plugindev`插件，并配置相关信息
 
@@ -174,13 +174,13 @@ bintray {
 
 关于`plugindev`的详细使用方法及其配置，请[参考这里][2]
 
-**step 2. 申请Bintray账号**
+### Step 2. 申请Bintray账号
 
 上一步当中有一部分是Bintray的配置，这需要一个Bintray的账号，如果你还没有账号，那就赶紧去[注册一个][3]吧。访问速度有点慢，翻墙会快点。
 
-*账号注册完毕后，在编辑个人信息的页面里可以看到自己的Bintray api key*
+_账号注册完毕后，在编辑个人信息的页面里可以看到自己的Bintray api key_
 
-**step 3. 发布到Bintray**
+### Step 3. 发布到Bintray
 
 如果上面的步骤都设置正确了的话，现在只需要运行一个gradle的task就可以把插件发布到Bintray了：
 
@@ -188,7 +188,7 @@ bintray {
 $ gradle publishPluginToBintray
 {% endhighlight %}
 
-**step 4. 在客户端项目通过Bintray使用插件**
+### Step 4. 在客户端项目通过Bintray使用插件
 
 插件发布到Bintray之后，就只差最后一步了，那就是在客户端项目进行少量的配置，通过Bintray获取到插件并使用。修改客户端项目的`build.gradle`文件：
 
@@ -218,7 +218,13 @@ $ gradle greeting
 "Hello, World"
 {% endhighlight %}
 
+## 参考
+
+Gradle documations: [Chapter 59. Writing Custom Gradle Plugins][4]  
+Gradle plugin website: [How to submit your plugin…][1]  
+Plugindev on github: [gradle-plugindev-plugin][2]
 
 [1]:http://plugins.gradle.org/submit
 [2]:https://github.com/etiennestuder/gradle-plugindev-plugin
 [3]:https://bintray.com
+[4]:http://gradle.org/docs/current/userguide/custom_plugins.html
