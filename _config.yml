@@ -9,3 +9,6 @@ github_username:  wmaintw
 
 # Build settings
 markdown: kramdown
+
+analytics:
+  provider: custom
