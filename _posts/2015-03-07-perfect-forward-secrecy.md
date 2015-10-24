@@ -35,10 +35,12 @@ title: 完全向前保密 Perfect Forward Secrecy
 
 
 ### 参考资料
-- SSL/TSL & Perfect Forward Secrecy http://vincent.bernat.im/en/blog/2011-ssl-perfect-forward-secrecy.html
-- Forward secrecy for Google HTTPS https://www.imperialviolet.org/2011/11/22/forwardsecret.html
+- [SSL/TSL & Perfect Forward Secrecy] 
+- [Forward secrecy for Google HTTPS]
 
 [美国国家安全局（NSA）已经在这么做了]: http://forbes.com/sites/andygreenberg/2013/06/20/leaked-nsa-doc-says-it-can-collect-and-keep-your-encrypted-data-as-long-as-it-takes-to-crack-it/
 [阮一峰对HTTPS的介绍：《SSL/TSL协议运行机制的概述》]:http://www.ruanyifeng.com/blog/2014/02/ssl_TSL.html
 [Diffie-Hellman算法]:http://baike.baidu.com/view/551692.htm
 [OpenSSL心血漏洞]: https://en.wikipedia.org/wiki/Heartbleed
+[SSL/TSL & Perfect Forward Secrecy]: http://vincent.bernat.im/en/blog/2011-ssl-perfect-forward-secrecy.html
+[Forward secrecy for Google HTTPS]: https://www.imperialviolet.org/2011/11/22/forwardsecret.html
